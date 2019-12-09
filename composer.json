@@ -1,0 +1,56 @@
+{
+    "name": "getpop/locations",
+    "type": "library",
+    "description": "Adds support for locations",
+    "keywords": [
+        "PoP",
+        "locations"
+    ],
+    "homepage": "https://github.com/getpop/locations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leonardo Losoviz",
+            "email": "leo@getpop.org",
+            "homepage": "https://getpop.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php" : "~7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=7.0",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "suggest": {
+        "getpop/posts": "Integration with Posts"
+    },
+    "autoload": {
+        "psr-4": {
+            "PoP\\Locations\\": "src"
+        },
+        "files": [
+            "initialize.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PoP\\Locations\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs src tests",
+        "fix-style": "phpcbf src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
