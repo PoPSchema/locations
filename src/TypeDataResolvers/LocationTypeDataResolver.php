@@ -3,7 +3,6 @@ namespace PoP\Locations\TypeDataResolvers;
 
 use PoP\LooseContracts\Facades\NameResolverFacade;
 use PoP\Posts\TypeDataResolvers\PostTypeDataResolver;
-use PoP\Locations\TypeResolvers\LocationTypeResolver;
 
 class LocationTypeDataResolver extends PostTypeDataResolver
 {
@@ -28,13 +27,8 @@ class LocationTypeDataResolver extends PostTypeDataResolver
     //         return GD_DATABASE_KEY_LOCATIONS;
     //     }
 
-    //     return parent::getDatabaseKey();
+    //     return parent::getTypeName();
     // }
-
-    public function getTypeResolverClass(): string
-    {
-        return LocationTypeResolver::class;
-    }
 
     public function executeQueryIds($query): array
     {

@@ -19,7 +19,7 @@ class LocationTypeResolver extends AbstractTypeResolver
         return $pluginapi->getPostId($resultItem);
     }
 
-    public function getIdFieldTypeDataResolverClass(): string
+    public function getTypeDataResolverClass(): string
     {
         return LocationTypeDataResolver::class;
     }
