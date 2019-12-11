@@ -6,7 +6,7 @@ use PoP\Locations\TypeDataResolvers\LocationTypeDataResolver;
 
 class LocationTypeResolver extends AbstractTypeResolver
 {
-	public const NAME = 'locations';
+	public const NAME = 'Location';
 
     public function getTypeName(): string
     {
