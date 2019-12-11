@@ -2,7 +2,7 @@
 namespace PoP\Locations\TypeResolvers;
 
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
-use PoP\Locations\TypeDataResolvers\LocationTypeDataResolver;
+use PoP\Locations\TypeDataLoaders\LocationTypeDataLoader;
 
 class LocationTypeResolver extends AbstractTypeResolver
 {
@@ -19,9 +19,9 @@ class LocationTypeResolver extends AbstractTypeResolver
         return $pluginapi->getPostId($resultItem);
     }
 
-    public function getTypeDataResolverClass(): string
+    public function getTypeDataLoaderClass(): string
     {
-        return LocationTypeDataResolver::class;
+        return LocationTypeDataLoader::class;
     }
 }
 

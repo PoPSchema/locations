@@ -1,10 +1,10 @@
 <?php
-namespace PoP\Locations\TypeDataResolvers;
+namespace PoP\Locations\TypeDataLoaders;
 
 use PoP\LooseContracts\Facades\NameResolverFacade;
-use PoP\Posts\TypeDataResolvers\PostTypeDataResolver;
+use PoP\Posts\TypeDataLoaders\PostTypeDataLoader;
 
-class LocationTypeDataResolver extends PostTypeDataResolver
+class LocationTypeDataLoader extends PostTypeDataLoader
 {
     public function resolveObjectsFromIDs(array $ids): array
     {
