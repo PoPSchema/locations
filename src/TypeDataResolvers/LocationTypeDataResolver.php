@@ -17,7 +17,7 @@ class LocationTypeDataResolver extends PostTypeDataResolver
         return $pluginapi->get($query);
     }
 
-    // public function getTypeCollectionName(): string
+    // public function getTypeName(): string
     // {
 
     //     // If Locations are to be added to the main feed together with other post types, then it must be found under "posts"

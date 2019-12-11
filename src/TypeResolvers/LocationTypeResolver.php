@@ -6,11 +6,11 @@ use PoP\Locations\TypeDataResolvers\LocationTypeDataResolver;
 
 class LocationTypeResolver extends AbstractTypeResolver
 {
-	public const TYPE_COLLECTION_NAME = 'locations';
+	public const NAME = 'locations';
 
-    public function getTypeCollectionName(): string
+    public function getTypeName(): string
     {
-        return self::TYPE_COLLECTION_NAME;
+        return self::NAME;
     }
 
     public function getId($resultItem)
