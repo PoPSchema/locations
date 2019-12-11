@@ -6,7 +6,7 @@ use PoP\Posts\TypeDataLoaders\PostTypeDataLoader;
 
 class LocationTypeDataLoader extends PostTypeDataLoader
 {
-    public function resolveObjectsFromIDs(array $ids): array
+    public function getObjects(array $ids): array
     {
         $pluginapi = \PoP_Locations_APIFactory::getInstance();
         $query = array(
