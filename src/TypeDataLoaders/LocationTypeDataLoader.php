@@ -16,20 +16,6 @@ class LocationTypeDataLoader extends PostTypeDataLoader
         return $pluginapi->get($query);
     }
 
-    // public function getTypeName(): string
-    // {
-
-    //     // If Locations are to be added to the main feed together with other post types, then it must be found under "posts"
-    //     // Otherwise, it can be found under its own key "locations". Even though this is not needed, it looks better
-    //     $pluginapi = \PoP_Locations_APIFactory::getInstance();
-    //     $cmsapplicationpostsapi = \PoP\Application\PostsFunctionAPIFactory::getInstance();
-    //     if (!in_array($pluginapi->getLocationPostType(), $cmsapplicationpostsapi->getAllcontentPostTypes())) {
-    //         return GD_DATABASE_KEY_LOCATIONS;
-    //     }
-
-    //     return parent::getTypeName();
-    // }
-
     public function executeQueryIds($query): array
     {
         return (array)$this->executeQuery($query, ['return-type' => POP_RETURNTYPE_IDS]);
