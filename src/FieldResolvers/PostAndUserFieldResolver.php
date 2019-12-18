@@ -1,7 +1,6 @@
 <?php
 namespace PoP\Locations\FieldResolvers;
 
-use PoP\ComponentModel\Utils;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
@@ -9,6 +8,7 @@ use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\Posts\TypeResolvers\PostTypeResolver;
 use PoP\Users\TypeResolvers\UserTypeResolver;
 use PoP\Locations\TypeResolvers\LocationTypeResolver;
+use PoP\ComponentModel\GeneralUtils;
 
 class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
 {
@@ -52,10 +52,16 @@ class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
         switch ($fieldName) {
             case 'has-locations':
                 $locations = $typeResolver->resolveValue($resultItem, 'locations', $variables, $expressions, $options);
+                if (GeneralUtils::isError($locations)) {
+                    return $locations;
+                }
                 return !empty($locations);
 
             case 'location':
-                if ($locations = $typeResolver->resolveValue($resultItem, 'locations', $variables, $expressions, $options)) {
+                $locations = $typeResolver->resolveValue($resultItem, 'locations', $variables, $expressions, $options);
+                if (GeneralUtils::isError($locations)) {
+                    return $locations;
+                } elseif ($locations) {
                     return $locations[0];
                 }
                 return null;

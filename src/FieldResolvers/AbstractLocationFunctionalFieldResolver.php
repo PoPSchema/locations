@@ -1,7 +1,6 @@
 <?php
 namespace PoP\Locations\FieldResolvers;
 
-use PoP\ComponentModel\Utils;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\ComponentModel\FieldResolvers\AbstractFunctionalFieldResolver;
@@ -45,6 +44,9 @@ abstract class AbstractLocationFunctionalFieldResolver extends AbstractFunctiona
         switch ($fieldName) {
             case 'locationsmap-url':
                 $locations = $typeResolver->resolveValue($resultItem, 'locations', $variables, $expressions, $options);
+                if (GeneralUtils::isError($locations)) {
+                    return $locations;
+                }
                 return
                     // Decode it, because add_query_arg sends the params encoded and it doesn't look nice
                     urldecode(
@@ -53,7 +55,7 @@ abstract class AbstractLocationFunctionalFieldResolver extends AbstractFunctiona
                             POP_INPUTNAME_LOCATIONID => $locations,
                             // In order to keep always the same layout for the same URL, we add the param of which object we are coming from
                             // (Then, in the modal map, it will show either post/user layout, and that layout will be cached for that post/user but not for other objects)
-                            $this->getDbobjectIdField() => $typeResolver->resolveValue($resultItem, 'id', $variables, $expressions, $options),
+                            $this->getDbobjectIdField() => $typeResolver->getId($resultItem),
                         ], RouteUtils::getRouteURL(POP_LOCATIONS_ROUTE_LOCATIONSMAP))
                     );
         }
