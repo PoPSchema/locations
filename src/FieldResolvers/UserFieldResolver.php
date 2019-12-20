@@ -48,7 +48,7 @@ class UserFieldResolver extends AbstractDBDataFieldResolver
         $user = $resultItem;
         switch ($fieldName) {
             case 'locations':
-                return \PoP\UserMeta\Utils::getUserMeta($typeResolver->getId($user), GD_METAKEY_PROFILE_LOCATIONS);
+                return \PoP\UserMeta\Utils::getUserMeta($typeResolver->getID($user), GD_METAKEY_PROFILE_LOCATIONS);
         }
 
         return parent::resolveValue($typeResolver, $resultItem, $fieldName, $fieldArgs, $variables, $expressions, $options);

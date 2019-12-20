@@ -55,7 +55,7 @@ abstract class AbstractLocationFunctionalFieldResolver extends AbstractFunctiona
                             POP_INPUTNAME_LOCATIONID => $locations,
                             // In order to keep always the same layout for the same URL, we add the param of which object we are coming from
                             // (Then, in the modal map, it will show either post/user layout, and that layout will be cached for that post/user but not for other objects)
-                            $this->getDbobjectIdField() => $typeResolver->getId($resultItem),
+                            $this->getDbobjectIdField() => $typeResolver->getID($resultItem),
                         ], RouteUtils::getRouteURL(POP_LOCATIONS_ROUTE_LOCATIONSMAP))
                     );
         }

@@ -1,7 +1,6 @@
 <?php
 namespace PoP\Locations\FieldResolvers;
 
-use PoP\ComponentModel\Utils;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\ComponentModel\FieldResolvers\AbstractFunctionalFieldResolver;
@@ -50,7 +49,7 @@ class LocationFunctionalFieldResolver extends AbstractFunctionalFieldResolver
             case 'map-url':
                 // Decode it, because add_query_arg sends the params encoded and it doesn't look nice
                 return urldecode(GeneralUtils::addQueryArgs([
-                    POP_INPUTNAME_LOCATIONID => [$typeResolver->getId($resultItem)], 
+                    POP_INPUTNAME_LOCATIONID => [$typeResolver->getID($resultItem)],
                 ], RouteUtils::getRouteURL(POP_LOCATIONS_ROUTE_LOCATIONSMAP)));
         }
 

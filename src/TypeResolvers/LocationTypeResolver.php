@@ -21,7 +21,7 @@ class LocationTypeResolver extends AbstractTypeResolver
         return $translationAPI->__('Representation of a location entity, with a name, address and coordinates', 'locations');
     }
 
-    public function getId($resultItem)
+    public function getID($resultItem)
     {
         $locationTypeAPI = LocationTypeAPIFacade::getInstance();
         return $locationTypeAPI->getID($resultItem);
