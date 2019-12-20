@@ -7,6 +7,13 @@ namespace PoP\Locations\TypeAPIs;
 interface LocationTypeAPIInterface
 {
     /**
+     * Return the location's ID
+     *
+     * @param [type] $location
+     * @return void
+     */
+    public function getID($location);
+    /**
      * Indicates if the passed object is of type Location
      *
      * @param [type] $object

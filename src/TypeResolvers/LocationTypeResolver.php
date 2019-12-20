@@ -4,6 +4,7 @@ namespace PoP\Locations\TypeResolvers;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\Locations\TypeDataLoaders\LocationTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
+use PoP\Locations\Facades\LocationTypeAPIFacade;
 
 class LocationTypeResolver extends AbstractTypeResolver
 {
@@ -22,8 +23,8 @@ class LocationTypeResolver extends AbstractTypeResolver
 
     public function getId($resultItem)
     {
-        $pluginapi = \PoP_Locations_APIFactory::getInstance();
-        return $pluginapi->getPostId($resultItem);
+        $locationTypeAPI = LocationTypeAPIFacade::getInstance();
+        return $locationTypeAPI->getID($resultItem);
     }
 
     public function getTypeDataLoaderClass(): string
