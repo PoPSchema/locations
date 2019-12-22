@@ -13,7 +13,7 @@ class LocationTypeDataLoader extends PostTypeDataLoader
             'include' => $ids,
             'limit' => -1,
         );
-        return $pluginapi->get($query);
+        return $pluginapi->getLocations($query);
     }
 
     public function executeQueryIds($query): array
@@ -43,6 +43,6 @@ class LocationTypeDataLoader extends PostTypeDataLoader
     public function executeQuery($query, array $options = [])
     {
         $pluginapi = \PoP_Locations_APIFactory::getInstance();
-        return $pluginapi->get($query, $options);
+        return $pluginapi->getLocations($query, $options);
     }
 }
