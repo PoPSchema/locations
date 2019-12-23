@@ -1,14 +1,14 @@
 <?php
 namespace PoP\Locations\FieldResolvers;
 
-use PoP\Posts\TypeResolvers\PostTypeResolver;
+use PoP\Content\FieldInterfaces\ContentEntityFieldInterfaceResolver;
 
 class PostLocationFunctionalFieldResolver extends AbstractLocationFunctionalFieldResolver
 {
     public static function getClassesToAttachTo(): array
     {
         return array(
-            PostTypeResolver::class,
+            ContentEntityFieldInterfaceResolver::class,
         );
     }
 
