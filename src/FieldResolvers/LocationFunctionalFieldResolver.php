@@ -21,14 +21,14 @@ class LocationFunctionalFieldResolver extends AbstractFunctionalFieldResolver
     public static function getFieldNamesToResolve(): array
     {
         return [
-			'map-url',
+			'mapURL',
         ];
     }
 
     public function getSchemaFieldType(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $types = [
-			'map-url' => SchemaDefinition::TYPE_URL,
+			'mapURL' => SchemaDefinition::TYPE_URL,
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
     }
@@ -37,7 +37,7 @@ class LocationFunctionalFieldResolver extends AbstractFunctionalFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-			'map-url' => $translationAPI->__('', ''),
+			'mapURL' => $translationAPI->__('', ''),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }
@@ -46,7 +46,7 @@ class LocationFunctionalFieldResolver extends AbstractFunctionalFieldResolver
     {
         $location = $resultItem;
         switch ($fieldName) {
-            case 'map-url':
+            case 'mapURL':
                 // Decode it, because add_query_arg sends the params encoded and it doesn't look nice
                 return urldecode(GeneralUtils::addQueryArgs([
                     POP_INPUTNAME_LOCATIONID => [$typeResolver->getID($resultItem)],

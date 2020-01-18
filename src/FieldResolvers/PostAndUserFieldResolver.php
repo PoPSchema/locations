@@ -23,7 +23,7 @@ class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
     public static function getFieldNamesToResolve(): array
     {
         return [
-			'has-locations',
+			'hasLocations',
             'location',
         ];
     }
@@ -31,7 +31,7 @@ class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
     public function getSchemaFieldType(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $types = [
-			'has-locations' => SchemaDefinition::TYPE_BOOL,
+			'hasLocations' => SchemaDefinition::TYPE_BOOL,
             'location' => SchemaDefinition::TYPE_ID,
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
@@ -41,7 +41,7 @@ class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-			'has-locations' => $translationAPI->__('', ''),
+			'hasLocations' => $translationAPI->__('', ''),
             'location' => $translationAPI->__('', ''),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
@@ -50,7 +50,7 @@ class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
     public function resolveValue(TypeResolverInterface $typeResolver, $resultItem, string $fieldName, array $fieldArgs = [], ?array $variables = null, ?array $expressions = null, array $options = [])
     {
         switch ($fieldName) {
-            case 'has-locations':
+            case 'hasLocations':
                 $locations = $typeResolver->resolveValue($resultItem, 'locations', $variables, $expressions, $options);
                 if (GeneralUtils::isError($locations)) {
                     return $locations;
