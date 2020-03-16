@@ -2,3 +2,7 @@ services:
     PoP\Locations\FieldResolvers\:
         resource: '../src/FieldResolvers/*'
         public: true
+
+    PoP\Locations\TypeResolvers\:
+        resource: '../src/TypeResolvers/*'
+        public: true
