@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace PoP\Locations\Facades;
 
 use PoP\Locations\TypeAPIs\LocationTypeAPIInterface;
