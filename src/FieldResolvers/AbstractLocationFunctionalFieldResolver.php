@@ -18,14 +18,14 @@ abstract class AbstractLocationFunctionalFieldResolver extends AbstractFunctiona
     public static function getFieldNamesToResolve(): array
     {
         return [
-			'locationsmapURL',
+            'locationsmapURL',
         ];
     }
 
     public function getSchemaFieldType(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $types = [
-			'locationsmapURL' => SchemaDefinition::TYPE_URL,
+            'locationsmapURL' => SchemaDefinition::TYPE_URL,
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
     }
@@ -34,7 +34,7 @@ abstract class AbstractLocationFunctionalFieldResolver extends AbstractFunctiona
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-			'locationsmapURL' => $translationAPI->__('', ''),
+            'locationsmapURL' => $translationAPI->__('', ''),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }

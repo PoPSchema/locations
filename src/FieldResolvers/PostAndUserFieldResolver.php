@@ -23,7 +23,7 @@ class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
     public static function getFieldNamesToResolve(): array
     {
         return [
-			'hasLocations',
+            'hasLocations',
             'location',
         ];
     }
@@ -31,7 +31,7 @@ class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
     public function getSchemaFieldType(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $types = [
-			'hasLocations' => SchemaDefinition::TYPE_BOOL,
+            'hasLocations' => SchemaDefinition::TYPE_BOOL,
             'location' => SchemaDefinition::TYPE_ID,
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
@@ -41,7 +41,7 @@ class PostAndUserFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-			'hasLocations' => $translationAPI->__('', ''),
+            'hasLocations' => $translationAPI->__('', ''),
             'location' => $translationAPI->__('', ''),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);

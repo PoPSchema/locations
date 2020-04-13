@@ -8,7 +8,7 @@ use PoP\Locations\Facades\LocationTypeAPIFacade;
 
 class LocationTypeResolver extends AbstractTypeResolver
 {
-	public const NAME = 'Location';
+    public const NAME = 'Location';
 
     public function getTypeName(): string
     {
@@ -32,4 +32,3 @@ class LocationTypeResolver extends AbstractTypeResolver
         return LocationTypeDataLoader::class;
     }
 }
-
