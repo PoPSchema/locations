@@ -1,2 +1,2 @@
 <?php
-\PoP\Locations\Component::init();
+//\PoP\Locations\Component::initialize();
