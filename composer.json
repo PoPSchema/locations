@@ -33,10 +33,7 @@
     "autoload": {
         "psr-4": {
             "PoP\\Locations\\": "src"
-        },
-        "files": [
-            "initialize.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
