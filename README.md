@@ -20,12 +20,13 @@ Via Composer
 composer require getpop/locations
 ```
 
-<!--
 ## Usage
 
+Initialize the component:
+
 ``` php
+\PoP\Locations\Component::initialize();
 ```
--->
 
 ## Standards
 
