@@ -25,7 +25,9 @@ composer require getpop/locations
 Initialize the component:
 
 ``` php
-\PoP\Locations\Component::initialize();
+\PoP\Root\ComponentLoader::initializeComponents([
+    \PoP\Locations\Component::class,
+]);
 ```
 
 ## Standards
