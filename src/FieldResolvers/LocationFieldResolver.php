@@ -42,10 +42,10 @@ class LocationFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-            'coordinates' => $translationAPI->__('', ''),
-            'name' => $translationAPI->__('', ''),
-            'address' => $translationAPI->__('', ''),
-            'city' => $translationAPI->__('', ''),
+            'coordinates' => $translationAPI->__('Location coordinates', 'pop-locations'),
+            'name' => $translationAPI->__('Location name', 'pop-locations'),
+            'address' => $translationAPI->__('Location address', 'pop-locations'),
+            'city' => $translationAPI->__('Location city', 'pop-locations'),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }

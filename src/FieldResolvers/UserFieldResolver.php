@@ -40,7 +40,7 @@ class UserFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-            'locations' => $translationAPI->__('', ''),
+            'locations' => $translationAPI->__('Locations', 'pop-locations'),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }
