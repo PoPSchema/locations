@@ -48,7 +48,7 @@ abstract class AbstractLocationFunctionalFieldResolver extends AbstractFunctiona
             case 'locationsmapURL':
                 $locations = $typeResolver->resolveValue($resultItem, 'locations', $variables, $expressions, $options);
                 if (GeneralUtils::isError($locations)) {
-                    return $locations;
+                    return null;
                 }
                 return
                     // Decode it, because add_query_arg sends the params encoded and it doesn't look nice
