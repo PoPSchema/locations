@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PoP\Locations\FieldResolvers;
 
-use PoP\Content\FieldInterfaces\CustomPostFieldInterfaceResolver;
+use PoP\CustomPosts\FieldInterfaces\CustomPostFieldInterfaceResolver;
 
 class PostLocationFunctionalFieldResolver extends AbstractLocationFunctionalFieldResolver
 {
