@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace PoP\Locations\FieldResolvers;
 
-use PoP\Content\FieldInterfaces\ContentEntityFieldInterfaceResolver;
+use PoP\Content\FieldInterfaces\CustomPostFieldInterfaceResolver;
 
 class PostLocationFunctionalFieldResolver extends AbstractLocationFunctionalFieldResolver
 {
     public static function getClassesToAttachTo(): array
     {
         return array(
-            ContentEntityFieldInterfaceResolver::class,
+            CustomPostFieldInterfaceResolver::class,
         );
     }
 
