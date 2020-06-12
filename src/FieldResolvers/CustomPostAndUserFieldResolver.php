@@ -4,34 +4,38 @@ declare(strict_types=1);
 
 namespace PoP\Locations\FieldResolvers;
 
+use PoP\ComponentModel\Misc\GeneralUtils;
+use PoP\Users\TypeResolvers\UserTypeResolver;
 use PoP\ComponentModel\Schema\SchemaDefinition;
-use PoP\ComponentModel\Schema\TypeCastingHelpers;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\Locations\TypeResolvers\LocationTypeResolver;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
 use PoP\CustomPosts\FieldInterfaces\CustomPostFieldInterfaceResolver;
 
-class PostFieldResolver extends AbstractDBDataFieldResolver
+class CustomPostAndUserFieldResolver extends AbstractDBDataFieldResolver
 {
     public static function getClassesToAttachTo(): array
     {
         return array(
             CustomPostFieldInterfaceResolver::class,
+            UserTypeResolver::class,
         );
     }
 
     public static function getFieldNamesToResolve(): array
     {
         return [
-            'locations',
+            'hasLocations',
+            'location',
         ];
     }
 
     public function getSchemaFieldType(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $types = [
-            'locations' => TypeCastingHelpers::makeArray(SchemaDefinition::TYPE_ID),
+            'hasLocations' => SchemaDefinition::TYPE_BOOL,
+            'location' => SchemaDefinition::TYPE_ID,
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
     }
@@ -39,7 +43,7 @@ class PostFieldResolver extends AbstractDBDataFieldResolver
     public function isSchemaFieldResponseNonNullable(TypeResolverInterface $typeResolver, string $fieldName): bool
     {
         $nonNullableFieldNames = [
-            'locations',
+            'hasLocations',
         ];
         if (in_array($fieldName, $nonNullableFieldNames)) {
             return true;
@@ -51,17 +55,30 @@ class PostFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-            'locations' => $translationAPI->__('Object\'s locations', 'pop-locations'),
+            'hasLocations' => $translationAPI->__('Does the object have locations?', 'pop-locations'),
+            'location' => $translationAPI->__('Object\'s location', 'pop-locations'),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }
 
     public function resolveValue(TypeResolverInterface $typeResolver, $resultItem, string $fieldName, array $fieldArgs = [], ?array $variables = null, ?array $expressions = null, array $options = [])
     {
-        $post = $resultItem;
         switch ($fieldName) {
-            case 'locations':
-                return \PoP\CustomPostMeta\Utils::getCustomPostMeta($typeResolver->getID($post), GD_METAKEY_POST_LOCATIONS) ?? [];
+            case 'hasLocations':
+                $locations = $typeResolver->resolveValue($resultItem, 'locations', $variables, $expressions, $options);
+                if (GeneralUtils::isError($locations)) {
+                    return $locations;
+                }
+                return !empty($locations);
+
+            case 'location':
+                $locations = $typeResolver->resolveValue($resultItem, 'locations', $variables, $expressions, $options);
+                if (GeneralUtils::isError($locations)) {
+                    return $locations;
+                } elseif ($locations) {
+                    return $locations[0];
+                }
+                return null;
         }
 
         return parent::resolveValue($typeResolver, $resultItem, $fieldName, $fieldArgs, $variables, $expressions, $options);
@@ -70,7 +87,7 @@ class PostFieldResolver extends AbstractDBDataFieldResolver
     public function resolveFieldTypeResolverClass(TypeResolverInterface $typeResolver, string $fieldName, array $fieldArgs = []): ?string
     {
         switch ($fieldName) {
-            case 'locations':
+            case 'location':
                 return LocationTypeResolver::class;
         }
 

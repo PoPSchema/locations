@@ -6,7 +6,7 @@ namespace PoP\Locations\FieldResolvers;
 
 use PoP\CustomPosts\FieldInterfaces\CustomPostFieldInterfaceResolver;
 
-class PostLocationFunctionalFieldResolver extends AbstractLocationFunctionalFieldResolver
+class CustomPostLocationFunctionalFieldResolver extends AbstractLocationFunctionalFieldResolver
 {
     public static function getClassesToAttachTo(): array
     {
