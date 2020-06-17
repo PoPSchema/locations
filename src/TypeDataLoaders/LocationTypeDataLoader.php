@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PoP\Locations\TypeDataLoaders;
 
 use PoP\LooseContracts\Facades\NameResolverFacade;
-use PoP\Posts\TypeDataLoaders\PostTypeDataLoader;
+use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;
 
-class LocationTypeDataLoader extends PostTypeDataLoader
+class LocationTypeDataLoader extends AbstractTypeQueryableDataLoader
 {
     public function getObjects(array $ids): array
     {
