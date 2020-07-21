@@ -21,7 +21,7 @@ class LocationTypeDataLoader extends AbstractTypeQueryableDataLoader
 
     public function executeQueryIds($query): array
     {
-        return (array)$this->executeQuery($query, ['return-type' => POP_RETURNTYPE_IDS]);
+        return (array)$this->executeQuery($query, ['return-type' => \POP_RETURNTYPE_IDS]);
     }
 
     protected function getOrderbyDefault()
