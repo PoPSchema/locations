@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace PoP\Locations\FieldResolvers;
 
-use PoP\CustomPosts\FieldInterfaceResolvers\CustomPostFieldInterfaceResolver;
+use PoP\CustomPosts\FieldInterfaceResolvers\IsCustomPostFieldInterfaceResolver;
 
 class CustomPostLocationFunctionalFieldResolver extends AbstractLocationFunctionalFieldResolver
 {
     public static function getClassesToAttachTo(): array
     {
         return array(
-            CustomPostFieldInterfaceResolver::class,
+            IsCustomPostFieldInterfaceResolver::class,
         );
     }
 
