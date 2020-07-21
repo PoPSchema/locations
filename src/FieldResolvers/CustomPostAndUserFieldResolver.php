@@ -11,7 +11,7 @@ use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\Locations\TypeResolvers\LocationTypeResolver;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
-use PoP\CustomPosts\FieldInterfaces\CustomPostFieldInterfaceResolver;
+use PoP\CustomPosts\FieldInterfaceResolvers\CustomPostFieldInterfaceResolver;
 
 class CustomPostAndUserFieldResolver extends AbstractDBDataFieldResolver
 {
