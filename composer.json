@@ -1,5 +1,5 @@
 {
-    "name": "getpop/locations",
+    "name": "pop-schema/locations",
     "type": "library",
     "description": "Adds support for locations",
     "keywords": [
@@ -20,7 +20,7 @@
     "require": {
         "php": "~7.2",
         "getpop/engine": "dev-master",
-        "getpop/migrate-locations": "dev-master"
+        "pop-schema/migrate-locations": "dev-master"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12",
@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PoP\\Locations\\": "src"
+            "PoPSchema\\Locations\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PoP\\Locations\\": "tests"
+            "PoPSchema\\Locations\\": "tests"
         }
     },
     "scripts": {

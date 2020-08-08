@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PoP\Locations\FieldResolvers;
+namespace PoPSchema\Locations\FieldResolvers;
 
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
-use PoP\Locations\TypeResolvers\LocationTypeResolver;
+use PoPSchema\Locations\TypeResolvers\LocationTypeResolver;
 
 class LocationFieldResolver extends AbstractDBDataFieldResolver
 {

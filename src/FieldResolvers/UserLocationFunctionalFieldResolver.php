@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\Locations\FieldResolvers;
+namespace PoPSchema\Locations\FieldResolvers;
 
-use PoP\Users\TypeResolvers\UserTypeResolver;
+use PoPSchema\Users\TypeResolvers\UserTypeResolver;
 
 class UserLocationFunctionalFieldResolver extends AbstractLocationFunctionalFieldResolver
 {

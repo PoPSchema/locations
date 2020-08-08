@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\Locations\TypeDataLoaders;
+namespace PoPSchema\Locations\TypeDataLoaders;
 
 use PoP\LooseContracts\Facades\NameResolverFacade;
 use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;

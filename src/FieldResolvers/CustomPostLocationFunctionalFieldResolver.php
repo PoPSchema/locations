@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\Locations\FieldResolvers;
+namespace PoPSchema\Locations\FieldResolvers;
 
-use PoP\CustomPosts\FieldInterfaceResolvers\IsCustomPostFieldInterfaceResolver;
+use PoPSchema\CustomPosts\FieldInterfaceResolvers\IsCustomPostFieldInterfaceResolver;
 
 class CustomPostLocationFunctionalFieldResolver extends AbstractLocationFunctionalFieldResolver
 {

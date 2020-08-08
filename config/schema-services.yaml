@@ -1,8 +1,8 @@
 services:
-    PoP\Locations\FieldResolvers\:
+    PoPSchema\Locations\FieldResolvers\:
         resource: '../src/FieldResolvers/*'
         public: true
 
-    PoP\Locations\TypeResolvers\:
+    PoPSchema\Locations\TypeResolvers\:
         resource: '../src/TypeResolvers/*'
         public: true

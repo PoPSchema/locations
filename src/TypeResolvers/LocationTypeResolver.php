@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PoP\Locations\TypeResolvers;
+namespace PoPSchema\Locations\TypeResolvers;
 
 use PoP\Translation\Facades\TranslationAPIFacade;
-use PoP\Locations\TypeDataLoaders\LocationTypeDataLoader;
+use PoPSchema\Locations\TypeDataLoaders\LocationTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
-use PoP\Locations\Facades\LocationTypeAPIFacade;
+use PoPSchema\Locations\Facades\LocationTypeAPIFacade;
 
 class LocationTypeResolver extends AbstractTypeResolver
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PoP\Locations\FieldResolvers;
+namespace PoPSchema\Locations\FieldResolvers;
 
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\Schema\TypeCastingHelpers;
-use PoP\Users\TypeResolvers\UserTypeResolver;
-use PoP\Locations\TypeResolvers\LocationTypeResolver;
+use PoPSchema\Users\TypeResolvers\UserTypeResolver;
+use PoPSchema\Locations\TypeResolvers\LocationTypeResolver;
 
 class UserFieldResolver extends AbstractDBDataFieldResolver
 {
@@ -61,7 +61,7 @@ class UserFieldResolver extends AbstractDBDataFieldResolver
         $user = $resultItem;
         switch ($fieldName) {
             case 'locations':
-                return \PoP\UserMeta\Utils::getUserMeta($typeResolver->getID($user), GD_METAKEY_PROFILE_LOCATIONS) ?? [];
+                return \PoPSchema\UserMeta\Utils::getUserMeta($typeResolver->getID($user), GD_METAKEY_PROFILE_LOCATIONS) ?? [];
         }
 
         return parent::resolveValue($typeResolver, $resultItem, $fieldName, $fieldArgs, $variables, $expressions, $options);

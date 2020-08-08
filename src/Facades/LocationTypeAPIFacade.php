@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\Locations\Facades;
+namespace PoPSchema\Locations\Facades;
 
-use PoP\Locations\TypeAPIs\LocationTypeAPIInterface;
+use PoPSchema\Locations\TypeAPIs\LocationTypeAPIInterface;
 use PoP\Root\Container\ContainerBuilderFactory;
 
 class LocationTypeAPIFacade
