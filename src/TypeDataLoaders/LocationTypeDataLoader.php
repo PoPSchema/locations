@@ -6,6 +6,7 @@ namespace PoPSchema\Locations\TypeDataLoaders;
 
 use PoP\LooseContracts\Facades\NameResolverFacade;
 use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;
+use PoPSchema\SchemaCommons\DataLoading\ReturnTypes;
 
 class LocationTypeDataLoader extends AbstractTypeQueryableDataLoader
 {
@@ -21,7 +22,7 @@ class LocationTypeDataLoader extends AbstractTypeQueryableDataLoader
 
     public function executeQueryIds($query): array
     {
-        return (array)$this->executeQuery($query, ['return-type' => \POP_RETURNTYPE_IDS]);
+        return (array)$this->executeQuery($query, ['return-type' => ReturnTypes::IDS]);
     }
 
     protected function getOrderbyDefault()
